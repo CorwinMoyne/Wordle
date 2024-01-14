@@ -1,0 +1,25 @@
+#root {
+  width: 100vw;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.grid {
+  display: grid;
+  gap: 4px;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.solution {
+  color: #6AAA64;
+  font-weight: bold;
+  font-size: 2rem;
+}

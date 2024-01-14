@@ -1,0 +1,27 @@
+.tile {
+  border: 1px solid rgb(175, 175, 175);
+  border-radius: 2px;
+  padding: 16px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.notPresent {
+  background: #787C7E;
+  color: white;
+}
+
+.presentAtIndex {
+  background: #6AAA64;
+  color: white;
+}
+
+.presentAtOtherIndex {
+  background: #C9B458;
+  color: white;
+}
