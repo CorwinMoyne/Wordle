@@ -1,9 +1,7 @@
-import { Fragment, useEffect, useId, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import "./App.css";
-import words from "./words";
 import Tile from "./components/Tile/Tile";
-
-// const API_URL = "https://api.frontendexpert.io/api/fe/wordle-words";
+import words from "./words";
 
 const MAX_WORD_LENGTH = 5;
 const MAX_ROW_LENGTH = 6;
@@ -83,22 +81,21 @@ function App() {
   ]);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
 
-
-  console.log("solution", solution.current);
-
-  // TODO: limit to numbers
-
   function getRow() {
     const copy = [...guesses];
     return copy[activeRowIndex.current].options;
   }
 
   function hasLetterAtIndex(index, letter) {
-    return solution.current.includes(letter) && solution.current[index] === letter;
+    return (
+      solution.current.includes(letter) && solution.current[index] === letter
+    );
   }
 
   function hasLetterAtOtherIndex(index, letter) {
-    return solution.current.includes(letter) && solution.current[index] !== letter;
+    return (
+      solution.current.includes(letter) && solution.current[index] !== letter
+    );
   }
 
   function processRow() {
@@ -158,6 +155,11 @@ function App() {
     } else if (event.key === "Backspace") {
       handleBackspaceKey();
     } else {
+      const isLetter = event.key.match(/^[a-zA-Z]{1}$/) !== null;
+      console.log("isLetter", isLetter);
+      if (!isLetter) {
+        return;
+      }
       const copy = [...guesses];
       copy[activeRowIndex.current].options[activeColIndex.current].letter =
         event.key;
